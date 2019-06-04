@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "pythonclub"
+version = "0.1.0"
+description = ""
+authors = ["Craig Dalton <craig@loudsquel.ch>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+flask = "^1.0"
+requests = "^2.22"
+Flask-Caching = "^1.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+black = { version = "*", allows-prereleases = true }
+flake8 = "^3.7"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

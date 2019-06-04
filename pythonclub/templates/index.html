@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Python Club</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='assets/css/main.css') }}"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='assets/css/noscript.css') }}"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper" class="divided">
+      <!-- One -->
+      <section
+        class="banner style1 orient-right content-align-left image-position-left fullscreen onload-image-fade-in onload-content-fade-right"
+      >
+        <div class="content">
+          <h1 font-family="fightthisregular">Python Club</h1>
+          <p class="major">
+            "First you've gotta know, not fear, know - that someday you're gonna
+            code."
+          </p>
+          <ul class="actions stacked">
+            <li>
+              <a href="#first" class="button big wide smooth-scroll-middle"
+                >Rules</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/banner.jpg') }}" />
+        </div>
+      </section>
+
+      <!-- Two -->
+      <section
+        class="spotlight style1 orient-left content-align-right image-position-center onscroll-image-fade-in"
+        id="first"
+      >
+        <div class="content">
+          <h2>Welcome to Python Club</h2>
+          <p>
+            <b>The 1st rule of Python Club is:</b> you DO talk about Python
+            Club!<br />
+            <b>The 2nd rule of Python Club is:</b> you DO talk about Python
+            Club!<br />
+            <b>3rd rule of Python Club:</b> someone yells "TypeError!", It's
+            over.<br />
+            <b>4th rule:</b> only one return value from a function.<br />
+            <b>5th rule:</b> one import at a time, fellas.<br />
+            <b>6th rule:</b> no bare except clauses; no wildcard imports.<br />
+            <b>7th rule:</b> programs will go on as long as they have to.<br />
+            <b>8th rule:</b> if this is your 1st time at Python Club, you have
+            to code!
+          </p>
+          <ul class="actions stacked">
+            <li><a href="#second" class="button">Learn More</a></li>
+          </ul>
+        </div>
+        <div class="image">
+          <img
+            src="{{ url_for('static', filename='images/spotlight01.jpg') }}"
+          />
+        </div>
+      </section>
+
+      <!-- Three -->
+      <section
+        class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in"
+        id="second"
+      >
+        <div class="content">
+          <h2>When and Where?</h2>
+          <p>
+            <b
+              >Python Club members meet every Wednesday at 12 noon in Incus
+              (room G10).</b
+            >
+            There is NO minimum bar for entry: a keeness to LEARN, SHARE and
+            HELP others is all we ask for.
+            <br /><br />
+            Please feel free to turn up on the day. To keep up-to-date with our
+            schedule be sure to add yourself to the <b>Python Club</b> Outlook
+            DL. For technical questions, assistance and python news and
+            discuusion please join the <b>#python-club</b> Slack channel.
+          </p>
+        </div>
+        <div class="image">
+          <img
+            src="{{ url_for('static', filename='images/spotlight02.jpg') }}"
+          />
+        </div>
+      </section>
+
+      <!-- Projects-->
+      <section class="wrapper style1 align-center">
+        <div class="content">
+          <br />
+          <h2>Projects</h2>
+          <p></p>
+          <p>
+            Several sample projects have been created for Python Club by the
+            talented ty1er-durden and are hosted as public GitHub repositories.
+            To experiment with one of our sample projects look at the
+            <i>README.md</i> for instructions on how to use it. You can clone
+            the repository locally with
+            <code>git clone https://github.com/ty1er-durden/PROJECTNAME</code>.
+            <b
+              >The actual source code for this website can be found in the
+              <a href="https://github.com/ty1er-durden/pythonclub">
+                pythonclub project</a
+              >.</b
+            >
+          </p>
+          <div class="items style1 medium onscroll-fade-in">
+            {% for repo in repos %}
+            <section>
+              <span class="icon style2 major fa-code"></span>
+              <h2>
+                <a href="{{ repo['url'] }}">{{ repo["name"] }}</a>
+              </h2>
+              <h3>{{ repo["updatedAt"] }}</h3>
+              <p>
+                {{ repo["description"] }}
+              </p>
+            </section>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="wrapper style1 align-center">
+        <div class="content">
+          <br /><br />
+          <ul class="icons">
+            <li>
+              <a
+                href="https://github.com/ty1er-durden/"
+                class="icon style2 fa-github"
+                ><span class="label">GitHub</span></a
+              >
+            </li>
+            <li>
+              <a href="#" class="icon style2 fa-slack"
+                ><span class="label">Slack</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="mailto:pythonclub@loudsquel.ch"
+                class="icon style2 fa-envelope"
+                ><span class="label">Email</span></a
+              >
+            </li>
+          </ul>
+          <p>
+            &copy; 2019 Tyler Durden.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.scrollex.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+  </body>
+</html>
