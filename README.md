@@ -1,6 +1,6 @@
 # pythonclub
 
-## Run on Local Machine (on port 80)
+## Run on Local Machine (on port 5000)
 
 Install poetry:
 
@@ -27,12 +27,29 @@ Install dependencies:
 poetry install
 ```
 
+Create a GitHub toke as per:
+https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line
+
+Set Environmet variables (substituting for actual values):
+
+```bash
+cd pythonclub
+echo APP_ENV=dev > .env
+echo SLACK_CHANNEL=https://{{ workspace }}.slack.com/messages/{{ channel }}/ >> .env
+echo EMAIL_ADDRESS={{ email }} >> .env
+echo GITHUB_PROFILE={{ github_profile }} >> .env
+echo GITHUB_API_TOKEN={{ github_token }} >> .env
+set -o allexport && source .env && set +o allexport
+```
+
 Start web server:
 
 ```bash
 cd pythonclub/pythonclub
-python main.py
+python pythonclub/main.py
 ```
+
+Browse to http://localhost:5000/
 
 ## Run on Docker (on port 80)
 

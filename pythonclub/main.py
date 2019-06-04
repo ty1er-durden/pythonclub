@@ -1,5 +1,6 @@
 import flask
 import flask_caching
+import os
 import repo
 
 app = flask.Flask(__name__)
@@ -23,8 +24,22 @@ def index():
                 "updatedAt": "Cannot retrieve GitHub repositories :(",
             }
         ]
-    return flask.render_template("index.html", repos=repos)
+    return flask.render_template(
+        "index.html",
+        repos=repos,
+        email_address=os.environ["EMAIL_ADDRESS"],
+        github_profile=os.environ["GITHUB_PROFILE"],
+        slack_channel=os.environ["SLACK_CHANNEL"],
+    )
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True, port=80)
+    try:
+        APP_ENV = os.environ["APP_ENV"]
+    except KeyError:
+        APP_ENV = ""
+
+    if APP_ENV == "production":
+        app.run(host="0.0.0.0", port=80)
+    else:
+        app.run(host="0.0.0.0", debug=True, port=5000)

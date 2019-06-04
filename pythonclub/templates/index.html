@@ -111,14 +111,18 @@
           <p></p>
           <p>
             Several sample projects have been created for Python Club by the
-            talented ty1er-durden and are hosted as public GitHub repositories.
+            talented Tyler Durden and are hosted as public GitHub repositories.
             To experiment with one of our sample projects look at the
             <i>README.md</i> for instructions on how to use it. You can clone
             the repository locally with
-            <code>git clone https://github.com/ty1er-durden/PROJECTNAME</code>.
+            <code
+              >git clone https://github.com/{{
+                github_profile
+              }}/PROJECTNAME</code
+            >.
             <b
               >The actual source code for this website can be found in the
-              <a href="https://github.com/ty1er-durden/pythonclub">
+              <a href="https://github.com/{{ github_profile }}/pythonclub">
                 pythonclub project</a
               >.</b
             >
@@ -147,19 +151,19 @@
           <ul class="icons">
             <li>
               <a
-                href="https://github.com/ty1er-durden/"
+                href="https://github.com/{{ github_profile }}/"
                 class="icon style2 fa-github"
                 ><span class="label">GitHub</span></a
               >
             </li>
             <li>
-              <a href="#" class="icon style2 fa-slack"
+              <a href="{{ slack_channel }}" class="icon style2 fa-slack"
                 ><span class="label">Slack</span></a
               >
             </li>
             <li>
               <a
-                href="mailto:pythonclub@loudsquel.ch"
+                href="mailto:{{ email_address }}"
                 class="icon style2 fa-envelope"
                 ><span class="label">Email</span></a
               >
