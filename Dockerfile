@@ -10,6 +10,10 @@ ENV APP_ENV=production \
     PIP_DEFAULT_TIMEOUT=100 \
     POETRY_VERSION=0.12.11
 
+# Don't run uwsgi as root
+RUN echo 'uid = uwsgi' >> /app/uwsgi.ini
+RUN echo 'gid = uwsgi' >> /app/uwsgi.ini
+
 # System deps:
 RUN pip install "poetry==${POETRY_VERSION}"
 
