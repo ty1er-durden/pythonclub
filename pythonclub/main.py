@@ -1,7 +1,10 @@
 import flask
 import flask_caching
 import os
+
+import config
 import repo
+
 
 app = flask.Flask(__name__)
 cache = flask_caching.Cache(app, config={"CACHE_TYPE": "simple"})
@@ -27,13 +30,14 @@ def index():
     return flask.render_template(
         "index.html",
         repos=repos,
-        email_address=os.environ["EMAIL_ADDRESS"],
-        github_profile=os.environ["GITHUB_PROFILE"],
-        slack_channel=os.environ["SLACK_CHANNEL"],
+        email_address=config.EMAIL_ADDRESS,
+        github_profile=config.GITHUB_PROFILE,
+        slack_channel=config.SLACK_CHANNEL,
     )
 
 
 if __name__ == "__main__":
+
     try:
         APP_ENV = os.environ["APP_ENV"]
     except KeyError:
