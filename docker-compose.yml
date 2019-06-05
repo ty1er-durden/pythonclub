@@ -2,8 +2,7 @@ version: "3.5"
 
 services:
   pythonclub:
-    build:
-      image: ty1erdurden/pythonclub:latest
+    image: ty1erdurden/pythonclub:latest
     ports:
       - "80:80"
     environment:
