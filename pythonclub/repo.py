@@ -1,10 +1,16 @@
 import json
+import logging
 import os
 import requests
 
+logger = logging.getLogger(__name__)
 
 GITHUB_API_URL = "https://api.github.com/graphql"
-GITHUB_API_TOKEN = os.environ["GITHUB_API_TOKEN"]
+
+try:
+    GITHUB_API_TOKEN = os.environ["GITHUB_API_TOKEN"]
+except KeyError:
+    GITHUB_API_TOKEN = ""
 
 
 def get_git_repos(max_repos: int = 10):
